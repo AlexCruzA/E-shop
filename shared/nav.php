@@ -1,7 +1,7 @@
 <?php
-	//include '../seguridad/verificar_session.php';
- 	//include '../DbSetup.php';
-  	//$user = $usuario_model->findUser($_SESSION['usuario_id']);
+	include '../seguridad/verificar_session.php';
+ 	include '../DbSetup.php';
+  	$user = $usuario_model->findUser($_SESSION['usuario_id']);
 ?>
 
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
@@ -30,9 +30,8 @@
 		      <a class="nav-link" href="/orden_compra/index.php">Ordenes de compra</a>
 		    </li>
 		</ul>
-		
-		<!--<a class="nav-link" href="/usuarios/index.php"> <?php //echo $user['nombre'] . "-" ;echo $user['rol'];?> </a>
-     	<a class="nav-link" href="/seguridad/logout.php">Logout</a> -->
+		<a class="nav-link" href="/usuarios/index.php"> <?php echo $user['nombre'] . "-" ;echo $user['rol'];?> </a>
+     	<a class="nav-link" href="/seguridad/logout.php">Logout</a>
 	</div>
 
 </nav>
