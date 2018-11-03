@@ -2,7 +2,7 @@
   $titulo = 'Login';
   if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    //include '../DbSetup.php';
+    include '../DbSetup.php';
 
     $correo = isset($_POST['correo']) ? $_POST['correo'] : '';
     $contrasenna = isset($_POST['contrasenna']) ? $_POST['contrasenna'] : '';
@@ -33,5 +33,3 @@
 <?php
 include '../shared/footer.php';
 ?>
-
-
