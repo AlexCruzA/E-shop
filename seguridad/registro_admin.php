@@ -28,6 +28,15 @@
   include '../shared/header.php';
 ?>
 
+<?php 
+    include '../seguridad/verificar_session.php';
+    include '../DbSetup.php';
+    $user = $usuario_model->findUser($_SESSION['usuario_id']);
+    
+    if ($user['rol'] == "Comprador"){ 
+      return header("Location: /home/fail.php");
+  }?>
+
 <body class="text-center ">
   <form  method="POST">
     <br><h2>Registro</h2><br>
@@ -45,11 +54,12 @@
     <br><br>
     <label>Rol: </label>
     <select class="btn-info" name="rol">
+      <option  value="Administrador" >Administrador</option>
       <option  value="Comprador">Comprador</option>
     </select> 
     <br><br>
-    <input class="btn btn-primary" type="submit" name="" value="Registrarme!">
-    <a href="/seguridad/login.php">Login</a>
+    <input class="btn btn-primary" type="submit" name="" value="Registrar">
+    <a href="/home/index.php">Home</a>
   </form>
 </body>
 <?php include '../shared/footer.php';?> 

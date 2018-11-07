@@ -47,6 +47,7 @@
 				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 				    <a class="dropdown-item" href="/usuarios/index.php">Perfil</a>
 				    <a class="dropdown-item" href="/usuarios/edit.php">Usuarios</a>
+				    <a class="dropdown-item" href="/seguridad/registro_admin.php">Registro</a>
 				</div>
 			</li>
 		</ul>
