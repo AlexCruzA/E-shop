@@ -39,7 +39,17 @@
 		      <a class="nav-link" href="/orden_compra/index.php">Ordenes de compra</a>
 		    </li>
 		</ul>
-		<a class="nav-link" href="/usuarios/index.php"> <?php echo $user['nombre'] . "-" ;echo $user['rol'];?> </a>
+		<ul class="nav navbar-nav">
+			<li class="nav-item dropdown">
+				<a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">  
+				<?php echo $user['nombre'] . "-" ;echo $user['rol'];?>
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+				    <a class="dropdown-item" href="/usuarios/index.php">Perfil</a>
+				    <a class="dropdown-item" href="/usuarios/edit.php">Usuarios</a>
+				</div>
+			</li>
+		</ul>
      	<a class="nav-link" href="/seguridad/logout.php">Logout</a>
 	</div>
 </nav>
