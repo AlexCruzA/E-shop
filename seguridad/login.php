@@ -21,11 +21,12 @@
 ?>
 
 <body class="text-center">
+  <br><h2><center>Login</center></h2><br><hr>
   <form class="form-signin" method="POST">
     <input type="email" id="inputEmail" placeholder="Correo electronico" name="correo" value="<?= isset($_POST['correo']) ? $_POST['correo'] : ''; ?>">
-    <br>
+    <br><hr>
     <input type="password" placeholder="Contraseña" name="contrasenna">
-    <br>
+    <br><hr><br>
     <input class="btn btn-primary" type="submit" name="" value="Login!">
     <a href="/seguridad/registro.php">Registrarse</a>
   </form>

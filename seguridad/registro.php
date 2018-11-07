@@ -30,7 +30,7 @@
 
 <body class="text-center ">
   <form  method="POST">
-
+    <br><h2>Registro</h2><br>
     <input placeholder="Nombre" type="text" name="nombre" >
     <br>
     <input placeholder="Apellidos" type="text" name="apellidos">
@@ -42,13 +42,13 @@
     <input placeholder="Confirmar contraseña" type="password" name="password_confirmation">
     <br>
     <input placeholder="Direccion" type="text" name="direccion">
-    <br>
+    <br><br>
     <label>Rol: </label>
     <select class="btn-info" name="rol">
       <option  value="Administrador" >Administrador</option>
       <option  value="Comprador">Comprador</option>
     </select> 
-    <br>
+    <br><br>
     <input class="btn btn-primary" type="submit" name="" value="Registrarme!">
     <a href="/seguridad/login.php">Login</a>
   </form>

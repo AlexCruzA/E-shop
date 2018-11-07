@@ -30,11 +30,6 @@
   include '../shared/header.php';
   include '../shared/nav.php';
 ?>
-<?php 
-    $user = $usuario_model->findUser($_SESSION['usuario_id']);
-    if ($user['rol'] == "Comprador"){ 
-      return header("Location: /usuarios/index_comprador.php");
-  }?>
 
 <body class="text-center">
   <form method="POST">
@@ -51,7 +46,6 @@
     <input type="text" placeholder="Direccion" name="direccion" required autofocus value="<?= $usuario['direccion']?>">
     <br>
     <select name="rol">
-      <option  value="Administrador" >Administrador</option>
       <option  value="Comprador">Comprador</option>
     </select> 
     <br>

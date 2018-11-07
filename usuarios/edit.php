@@ -1,20 +1,17 @@
 <?php
-  
   $search = isset($_GET['search']) ? $_GET['search'] : '';
-
-  //$titulo = 'Editar Cuenta';
+  $titulo = 'Editar Cuenta';
   include '../seguridad/verificar_session.php';
   include '../DbSetup.php';
+  $usuario = $usuario_model->findUser($_SESSION['usuario_id']);
   include '../shared/header.php';
   include '../shared/nav.php';
-  $usuario = $usuario_model->findUser($_SESSION['usuario_id']);
 ?>
-
 <?php 
-  $user = $usuario_model->findUser($_SESSION['usuario_id']);
-  if ($user['rol'] == "Comprador"){ 
-    return header("Location: /home/fail.php");
-}?>
+    $user = $usuario_model->findUser($_SESSION['usuario_id']);
+    if ($user['rol'] == "Comprador"){ 
+      return header("Location: /home/fail.php");
+  }?>
 
 <h2>Lista De Usuarios</h2>
   <table align="center" border="3">
