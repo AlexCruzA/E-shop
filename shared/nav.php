@@ -20,7 +20,7 @@
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 		          <a class="dropdown-item" href="/articulos/new.php">Agregar</a>
-		          <a class="dropdown-item" href="/articulos/index.php">Editar</a>
+		          <a class="dropdown-item" href="/articulos/index.php">Listar</a>
 		        </div>
 		    </li>
 		    <li class="nav-item dropdown">
@@ -29,7 +29,7 @@
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 		          <a class="dropdown-item" href="/categorias/new.php">Agregar</a>
-		          <a class="dropdown-item" href="/categorias/index.php">Editar</a>
+		          <a class="dropdown-item" href="/categorias/index.php">Listar</a>
 		        </div>
 		    </li>
 		    <li class="nav-item">

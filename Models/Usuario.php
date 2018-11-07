@@ -41,5 +41,24 @@ namespace Models {
       $result = $this->connection->executeSql("select * from usuario where id =  (SELECT MAX(id) FROM usuario)");
       return $this->connection->getResults($result)[0];
     }
+
+    public function index($search)
+    {
+      $sql = "select * from usuario ";
+      if ($search) {
+        $search_criteria = [];
+        array_push($search_criteria, "id = " . intval($search));
+        array_push($search_criteria, "nombre ilike '%" . $search ."%'");
+        array_push($search_criteria, "apellidos ilike '%" . $search ."%'");
+        array_push($search_criteria, "correo ilike '%" . $search ."%'");
+        array_push($search_criteria, "direccion ilike '%" . $search ."%'");
+        array_push($search_criteria, "rol ilike '%" . $search ."%'");
+
+        $sql .= " where " . join($search_criteria, ' or ');
+      }
+      $sql .= "order by id";
+      $result = $this->connection->executeSql($sql);
+      return $this->connection->getResults($result);
+    }
   }
 }

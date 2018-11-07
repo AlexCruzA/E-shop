@@ -1,5 +1,5 @@
 <?php
-  $titulo = 'Articulos';
+  //$titulo = 'Articulos';
   $search = isset($_GET['search']) ? $_GET['search'] : '';
 ?>
 
@@ -29,7 +29,7 @@
     <input type="submit" value="Search">
   </form>-->
   
-  <h2>Editar Articulos</h2>
+  <h2>Lista De Articulos</h2>
   <table align="center" border="3">
     <tr>
       <th class="text-center">ID</th>
