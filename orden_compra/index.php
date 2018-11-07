@@ -4,6 +4,7 @@
   include '../DbSetup.php';
   include '../shared/header.php';
   include '../shared/nav.php';
+  error_reporting(0);
 
 $search = isset($_GET['search']) ? $_GET['search'] : '';
 $user = $usuario_model->findUser($_SESSION['usuario_id']);

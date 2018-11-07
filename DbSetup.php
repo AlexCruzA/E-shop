@@ -1,7 +1,7 @@
 <?php
 
 require_once '../Db/BaseConnection.php';
-require_once '../Db/PostgresConnection.php';
+//require_once '../Db/PostgresConnection.php';
 require_once '../Db/MySqlConnection.php';
 require_once '../Models/Cliente.php';
 require_once '../Models/Usuario.php';
