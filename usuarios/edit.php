@@ -12,17 +12,20 @@
       return header("Location: /home/fail.php");
   }?>
 
-<h2>Lista De Usuarios</h2>
-  <table align="center" border="3">
-    <tr>
-      <th class="text-center">ID</th>
-      <th class="text-center">Nombre</th>
-      <th class="text-center">Apellidos</th>
-      <th class="text-center">Correo</th>
-      <th class="text-center">Direccion</th>
-      <th class="text-center">Rol</th>
-    </tr>
+<br><h2><center>Lista De Usuarios</center></h2><br>
+  <table class="table" align="center" border="3">
+    <thead class="thead-dark">
+      <tr>
+        <th class="text-center">ID</th>
+        <th class="text-center">Nombre</th>
+        <th class="text-center">Apellidos</th>
+        <th class="text-center">Correo</th>
+        <th class="text-center">Direccion</th>
+        <th class="text-center">Rol</th>
+      </tr>
+    </thead>
 
+    <tbody>
     <?php
       include '../DbSetup.php';
       $result_array = $usuario_model->index($search);
@@ -37,6 +40,7 @@
         echo "</tr>";
       } 
     ?>
+    </tbody>
   </table>
 
 
