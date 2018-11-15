@@ -24,32 +24,47 @@
       return header("Location: /seguridad/login.php");
     }
   }
-
   include '../shared/header.php';
 ?>
 
+<head>
+  <style>
+  .bg-text {
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 15%;
+    padding: 20px;
+    text-align: center;
+  }
+</style>
+</head>
 <body class="text-center ">
-  <form  method="POST">
-    <br><h2>Registro</h2><br>
-    <input placeholder="Nombre" type="text" name="nombre" >
-    <br>
-    <input placeholder="Apellidos" type="text" name="apellidos">
-    <br>
-    <input placeholder="Correo" type="email" name="correo">
-    <br>
-    <input placeholder="Contraseña" type="password" name="contrasenna">
-    <br>
-    <input placeholder="Confirmar contraseña" type="password" name="password_confirmation">
-    <br>
-    <input placeholder="Direccion" type="text" name="direccion">
-    <br><br>
-    <label>Rol: </label>
-    <select class="btn-info" name="rol">
-      <option  value="Comprador">Comprador</option>
-    </select> 
-    <br><br>
-    <input class="btn btn-primary" type="submit" name="" value="Registrarme!">
-    <a href="/seguridad/login.php">Login</a>
-  </form>
+  <div class="bg-text">
+    <form  method="POST">
+      <br><h2>Registro</h2><br>
+      <input placeholder="Nombre" class="form-control" type="text" name="nombre" >
+      <br>
+      <input placeholder="Apellidos" class="form-control" type="text" name="apellidos">
+      <br>
+      <input placeholder="Correo" class="form-control" type="email" name="correo">
+      <br>
+      <input placeholder="Contraseña" class="form-control" type="password" name="contrasenna">
+      <br>
+      <input placeholder="Confirmar contraseña" class="form-control" type="password" name="password_confirmation">
+      <br>
+      <input placeholder="Direccion" class="form-control" type="text" name="direccion">
+      <br>
+      <select class="form-control" style="width: 100%;" name="rol">
+        <option  value="Comprador">Comprador</option>
+      </select> 
+      <br><br>
+      <input class="btn btn-primary" type="submit" name="" value="Registrarme!">
+      <a href="/seguridad/login.php">Login</a>
+    </form>
+  </div>
 </body>
 <?php include '../shared/footer.php';?> 

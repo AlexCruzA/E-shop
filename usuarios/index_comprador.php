@@ -1,8 +1,9 @@
 <?php
   $search = isset($_GET['search']) ? $_GET['search'] : '';
   $titulo = 'Editar Cuenta';
-  include '../seguridad/verificar_session.php';
   include '../DbSetup.php';
+  include '../shared/header.php';
+  include '../shared/nav.php';
 
   if($_SERVER['REQUEST_METHOD'] == 'POST'){ 
     $nombre=isset($_POST['nombre']) ? $_POST['nombre'] : '';
@@ -24,11 +25,7 @@
       return header("Location: /home/index.php");
     }
   }
-
   $usuario = $usuario_model->findUser($_SESSION['usuario_id']);
-
-  include '../shared/header.php';
-  include '../shared/nav.php';
 ?>
 
 <body class="text-center">
