@@ -41,14 +41,14 @@
 
   <div class="container"> 
     <form method="GET">
-      <select name="search">
+      <select class="form-control" style="width: 13%;" name="search">
         <?php
           $result_array2 = $categoria_model->index($search);
           foreach ($result_array2 as $row) {
             echo "  <option value='". $row['descripcion'] ."' >".$row['descripcion'] . "</option>";
           }
         ?>
-      </select>
+      </select><br>
       <input type='submit' class='btn btn-lg btn-outline-primary' value="Search">
       <input type='submit' class='btn btn-lg btn-outline-primary' value="Limpiar filtro">
     </form>
