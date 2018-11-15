@@ -70,7 +70,7 @@
         <option value="Administrador" >Administrador</option>
         <option value="Comprador">Comprador</option>
       </select> 
-      <br><br>
+      <br>
       <input class="btn btn-primary" type="submit" name="" value="Registrar">
       <a href="/home/index.php">Home</a>
     </form>

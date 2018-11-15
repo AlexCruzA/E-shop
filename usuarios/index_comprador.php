@@ -28,27 +28,44 @@
   $usuario = $usuario_model->findUser($_SESSION['usuario_id']);
 ?>
 
+<head>
+  <style>
+  .bg-text {
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 15%;
+    padding: 20px;
+    text-align: center;
+  }
+</style>
+</head>
 <body class="text-center">
-  <form method="POST">
-    <input type="text" placeholder="Nombre" name="nombre" required autofocus value="<?= $usuario['nombre']?>" >
-    <br>
-    <input type="text" placeholder="Apellidos" name="apellidos" required autofocus value="<?= $usuario['apellidos']?>">
-    <br>
-    <input type="email" placeholder="Correo" name="correo" required autofocus value="<?= $usuario['correo']?>">
-    <br>
-    <input type="password" placeholder="Contraseña" name="contrasenna" >
-    <br>
-    <input type="password" placeholder="Confirmar contraseña" name="password_confirmation">
-    <br>
-    <input type="text" placeholder="Direccion" name="direccion" required autofocus value="<?= $usuario['direccion']?>">
-    <br>
-    <select name="rol">
-      <option  value="Comprador">Comprador</option>
-    </select> 
-    <br>
-    <input type="submit" name="" value="Guardar">
-  </form>
+  <div class="bg-text">
+    <form method="POST">
+      <h2>Perfil</h2><br>
+      <input type="text" placeholder="Nombre" class="form-control" name="nombre" required autofocus value="<?= $usuario['nombre']?>" >
+      <br>
+      <input type="text" placeholder="Apellidos" class="form-control" name="apellidos" required autofocus value="<?= $usuario['apellidos']?>">
+      <br>
+      <input type="email" placeholder="Correo" class="form-control" name="correo" required autofocus value="<?= $usuario['correo']?>">
+      <br>
+      <input type="password" placeholder="Contraseña" class="form-control" name="contrasenna" >
+      <br>
+      <input type="password" placeholder="Confirmar contraseña" class="form-control" name="password_confirmation">
+      <br>
+      <input type="text" placeholder="Direccion" class="form-control" name="direccion" required autofocus value="<?= $usuario['direccion']?>">
+      <br>
+      <select class="form-control" style="width: 100%;" name="rol">
+        <option  value="Comprador">Comprador</option>
+      </select> 
+      <br>
+      <input class="btn btn-primary" type="submit" name="" value="Guardar">
+    </form>
+  </div>
 </body>
-
 <?php include '../shared/footer.php'; ?>
 

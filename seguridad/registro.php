@@ -2,7 +2,6 @@
   $titulo = 'Registro';
   if($_SERVER['REQUEST_METHOD'] == 'POST'){ 
     include '../DbSetup.php';
-
     $nombre=isset($_POST['nombre']) ? $_POST['nombre'] : '';
     $apellidos=isset($_POST['apellidos']) ? $_POST['apellidos'] : '';
     $correo = isset($_POST['correo']) ? $_POST['correo'] : '';
