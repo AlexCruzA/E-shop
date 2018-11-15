@@ -1,6 +1,5 @@
 <?php
-   include '../shared/nav.php';
-   //$titulo = 'Usted no tiene acceso a esta página :(';
+  include '../shared/nav.php';
   include '../shared/header.php';
 ?>
 
