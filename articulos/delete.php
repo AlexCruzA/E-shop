@@ -3,6 +3,7 @@
   include '../DbSetup.php';
   include '../shared/header.php';
   include '../shared/nav.php';
+  error_reporting(0);
   $id = isset($_GET['id']) ? $_GET['id'] : '';
   $articulo = $articulo_model->findArticulo($id);
   if($_SERVER['REQUEST_METHOD'] == 'POST'){
