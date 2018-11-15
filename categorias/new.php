@@ -6,6 +6,7 @@
 
   if($_SERVER['REQUEST_METHOD'] == 'POST'){ 
     $descripcion=isset($_POST['descripcion']) ? $_POST['descripcion'] : '';
+
     if($descripcion==''){
       echo "Todos los datos son requeridos";
     }else {
@@ -22,13 +23,30 @@
     return header("Location: /home/fail.php");
 }?>
 
+<head>
+  <style>
+  .bg-text {
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 15%;
+    padding: 10px;
+    text-align: center;
+  }
+</style>
+</head>
 <body class="text-center">
-  <h2>Agregar Categoria</h2>
-  <form method="POST">
-    <input type="text" placeholder="Descripción" name="descripcion" >
-    <br>
-    <input type="submit" placeholder="Guardar" name="" value="Guardar">
-  </form>
+  <div class="bg-text">
+    <h2>Agregar Categoria</h2><br>
+    <form method="POST">
+      <input type="text" class="form-control" placeholder="Descripción" name="descripcion" >
+      <br>
+      <input type="submit" class="btn btn-primary" placeholder="Guardar" name="" value="Guardar">
+    </form>
+  </div>
 </body>  
 <?php
 include '../shared/footer.php';

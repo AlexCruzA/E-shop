@@ -4,14 +4,11 @@
   include '../shared/nav.php';
 ?>
 
-  <!DOCTYPE html>
-  <html>
   <head>
     <title>Página php</title>
     <meta charset="utf-8">
   </head>
   <body class="text-center">
-  
   <?php 
   include '../DbSetup.php';
   $user = $usuario_model->findUser($_SESSION['usuario_id']);
@@ -20,7 +17,6 @@
       return header("Location: /home/fail.php");
   }
   ?>
-  
 <br><h2><center>Lista De Articulos</center></h2><br>
 <table class="table" align="center" border="3">
   <thead class="thead-dark">
@@ -57,4 +53,3 @@
   </tbody>
 </table>
 </body>
-</html>

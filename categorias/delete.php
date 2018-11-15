@@ -15,18 +15,32 @@
   $user = $usuario_model->findUser($_SESSION['usuario_id']);
   if ($user['rol'] == "Comprador"){ 
     return header("Location: /home/fail.php");
-  }?>
+}?>
   
 <head>
-  <title>Eliminar Categoria</title>
+  <style>
+    .bg-text {
+      font-weight: bold;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      width: 15%;
+      padding: 10px;
+      text-align: center;
+    }
+  </style>
+  <title>Eliminar Categoría</title>
 </head>
 <body class="text-center">
-  <h2>Eliminar Categoria</h2>
-  <p>
-    Esta seguro de eliminar la categoria: <strong><?php echo $categoria['descripcion']; ?></strong>
-  </p>
-  <form method="POST">
-    <input type="submit" value="Si">
-    <a href="/categorias">No</a>
-  </form>
+  <div class="bg-text">
+    <h2>Eliminar Categoria</h2><br>
+    <input class="form-control" name="descripcion" style="text-align:center;" required autofocus value="<?php echo $categoria['descripcion']; ?>"readonly>
+    <br><p>Está seguro de eliminar la categoría?</p>
+    <form method="POST">
+      <input class="btn btn-danger" type="submit" value="Si">
+      <a class="btn btn-primary" href="/categorias">No</a>
+    </form>
+  </div>
 </body>

@@ -14,7 +14,7 @@
     $tamagno_imagen=$_FILES['imagen']['size'];
     $carpeta_destino=$_SERVER['DOCUMENT_ROOT'].'\\imagenes\\';
     move_uploaded_file($_FILES['imagen']['tmp_name'], $carpeta_destino.$nombre_imagen);
-
+    
     if(($descripcion=='')||($id_categoria=='')||($nombre_imagen=='')||($nombre=='')||($precio=='')){
       echo "Todos los datos son requeridos";
     }else {
