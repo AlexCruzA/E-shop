@@ -1,6 +1,8 @@
 <?php
   $titulo = 'Articulos';
   include '../DbSetup.php';
+  include '../shared/header.php';
+  include '../shared/nav.php';
   $id = isset($_GET['id']) ? $_GET['id'] : '';
   $articulo = $articulo_model->findArticulo($id);
 
@@ -11,29 +13,36 @@
 ?>
 
  <?php 
-  include '../seguridad/verificar_session.php';
-  include '../DbSetup.php';
   $user = $usuario_model->findUser($_SESSION['usuario_id']);
-  
   if ($user['rol'] == "Comprador"){ 
       return header("Location: /home/fail.php");
   }?>
 
-<!DOCTYPE html>
-<html>
 <head>
-  <?php include '../shared/header.php';
-        include '../shared/nav.php';  ?>
+  <head>
+    <style>
+      .bg-text {
+        font-weight: bold;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        width: 15%;
+        padding: 10px;
+        text-align: center;
+      }
+    </style>
   <title>Eliminar Articulo</title>
 </head>
 <body class="text-center">
-  <h2>Eliminar Articulo</h2>
-  <p>
-    Esta seguro de eliminar el articulo: <strong><?php echo $articulo['descripcion']; ?></strong>
-  </p>
-  <form method="POST">
-    <input type="submit" value="Si">
-    <a href="/articulos">No</a>
-  </form>
+  <div class="bg-text">
+    <h2>Eliminar Articulo</h2><br>
+    <input class="form-control" name="descripcion" style="text-align:center;" required autofocus value="<?php echo $articulo['descripcion']; ?>"readonly>
+  <br><p>Esta seguro de eliminar el articulo?</p>
+    <form method="POST">
+      <input class="btn btn-danger" type="submit" value="Si">
+      <a class="btn btn-primary" href="/articulos">No</a>
+    </form>
+  </div>
 </body>
-</html>

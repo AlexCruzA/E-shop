@@ -1,7 +1,8 @@
 <?php
   $titulo = 'Editar Articulo';
-  //include '../seguridad/verificar_session.php';
   include '../DbSetup.php';
+  include '../shared/header.php';
+  include '../shared/nav.php'; 
   $id = isset($_GET['id']) ? $_GET['id'] : '';
   if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $descripcion = isset($_POST['descripcion']) ? $_POST['descripcion'] : '';
@@ -12,52 +13,59 @@
     $articulo_model->update($id, $descripcion, $id_categoria, $imagen,$nombre,$precio);
     return header("Location: /articulos");
   }
-
   $articulo = $articulo_model->findArticulo($id);
 ?>
 
 <?php 
-  include '../DbSetup.php';
   $user = $usuario_model->findUser($_SESSION['usuario_id']);
   if ($user['rol'] == "Comprador"){ 
     return header("Location: /home/fail.php");
   }
 ?>
-
-<!DOCTYPE html>
-<html>
 <head>
-  <?php include '../shared/header.php';
-        include '../shared/nav.php'; ?>
+  <style>
+  .bg-text {
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 15%;
+    padding: 10px;
+    text-align: center;
+  }
+</style>
   <title>Editar Articulo</title>
 </head>
 <body class="text-center">
-  <h2>Editar Articulo</h2>
-  <form method="POST">
-    <label>Nombre:</label>
-    <input type="text" name="nombre" required autofocus value="<?= $articulo['nombre']?>">
-    <br>
-    <label>Descripción:</label>
-    <input type="text" name="descripcion" required autofocus value="<?= $articulo['descripcion']?>">
-    <br>
-    <label>Categoria:</label>
-    <select name="id_categoria">
-    <?php
-      $result_array1 = $categoria_model->index($search);
-      foreach ($result_array1 as $row) {
-        echo "<option  value='".$row['descripcion']."''>".$row['descripcion']."</option>";    
-      } 
-     ?>
-    </select> 
-    <br>
-     <label>Precio:</label>
-    <input type="text" name="precio" required autofocus value="<?= $articulo['precio']?>">
-    <br>
-    <label>Imagen:</label>
-    <input type="text" name="imagen" required autofocus value="<?= $articulo['imagen']?>">
-
-    <input type="submit" value="Salvar">
-    <a href="/articulos/index.php">Atras</a>
-  </form>
+  <div class="bg-text">
+    <h2>Editar Articulo</h2><br>
+    <form method="POST">
+      <label>Nombre</label>
+      <input type="text"  class="form-control" name="nombre" required autofocus value="<?= $articulo['nombre']?>">
+      <br>
+      <label>Descripción</label>
+      <input type="text"  class="form-control" name="descripcion" required autofocus value="<?= $articulo['descripcion']?>">
+      <br>
+      <label>Categoria</label>
+      <select class="form-control" style="width: 100%;" name="id_categoria">
+        <?php
+          $result_array1 = $categoria_model->index($search);
+          foreach ($result_array1 as $row) {
+            echo "<option  value='".$row['descripcion']."''>".$row['descripcion']."</option>";    
+          } 
+         ?>
+      </select> 
+      <br>
+      <label>Precio</label>
+      <input type="number"  class="form-control" name="precio" required autofocus value="<?= $articulo['precio']?>">
+      <br>
+      <label>Imagen</label>
+      <input type="text"  class="form-control" name="imagen" required autofocus value="<?= $articulo['imagen']?>" readonly>
+      <br>
+      <input type="submit" class="btn btn-primary" value="Salvar">
+      <a href="/articulos/index.php">Atras</a>
+    </form>
+  </div>
 </body>
-</html>

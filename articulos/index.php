@@ -1,6 +1,7 @@
 <?php
-  //$titulo = 'Articulos';
   $search = isset($_GET['search']) ? $_GET['search'] : '';
+  include '../shared/header.php';
+  include '../shared/nav.php';
 ?>
 
   <!DOCTYPE html>
@@ -12,7 +13,6 @@
   <body class="text-center">
   
   <?php 
-  include '../seguridad/verificar_session.php';
   include '../DbSetup.php';
   $user = $usuario_model->findUser($_SESSION['usuario_id']);
 
@@ -20,17 +20,10 @@
       return header("Location: /home/fail.php");
   }
   ?>
-
-  <?php include '../shared/header.php';
-        include '../shared/nav.php'; ?>
-
-  <!--<form method="GET">
-     <input type="text" autofocus name="search" value="<?php echo $search ?>">
-    <input type="submit" value="Search">
-  </form>-->
   
-  <h2>Lista De Articulos</h2>
-  <table align="center" border="3">
+<br><h2><center>Lista De Articulos</center></h2><br>
+<table class="table" align="center" border="3">
+  <thead class="thead-dark">
     <tr>
       <th class="text-center">ID</th>
       <th class="text-center">Nombre</th>
@@ -40,7 +33,8 @@
       <th class="text-center">Imagen</th>
       <th class="text-center">Opciones</th>
     </tr>
-
+  </thead>
+  <tbody>
     <?php
       include '../DbSetup.php';
       $result_array = $articulo_model->index($search);
@@ -60,6 +54,7 @@
         echo "</tr>";
       } 
     ?>
-  </table>
+  </tbody>
+</table>
 </body>
 </html>
