@@ -2,13 +2,10 @@
   $titulo = 'Categorias';
   include '../shared/header.php';
   include '../shared/nav.php';
-  include '../seguridad/verificar_session.php';
+  include '../DbSetup.php';
 
   if($_SERVER['REQUEST_METHOD'] == 'POST'){ 
-    include '../DbSetup.php';
-
     $descripcion=isset($_POST['descripcion']) ? $_POST['descripcion'] : '';
-
     if($descripcion==''){
       echo "Todos los datos son requeridos";
     }else {
@@ -23,7 +20,8 @@
   $user = $usuario_model->findUser($_SESSION['usuario_id']);
   if ($user['rol'] == "Comprador"){ 
     return header("Location: /home/fail.php");
-  }?>
+}?>
+
 <body class="text-center">
   <h2>Agregar Categoria</h2>
   <form method="POST">

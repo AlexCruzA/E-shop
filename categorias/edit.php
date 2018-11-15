@@ -1,6 +1,8 @@
 <?php
   $titulo = 'Editar Categoria';
   include '../DbSetup.php';
+  include '../shared/header.php';
+  include '../shared/nav.php'; 
   $id = isset($_GET['id']) ? $_GET['id'] : '';
 
   if($_SERVER['REQUEST_METHOD'] == 'POST'){
@@ -12,19 +14,13 @@
 ?>
 
 <?php 
-  include '../seguridad/verificar_session.php';
   $user = $usuario_model->findUser($_SESSION['usuario_id']);
   if ($user['rol'] == "Comprador"){ 
     return header("Location: /home/fail.php");
-  }?>
+}?>
 
-<!DOCTYPE html>
-<html>
+
 <head>
-  <?php 
-    include '../shared/header.php';
-    include '../shared/nav.php'; 
-  ?>
   <title>Editar Categoria</title>
 </head>
 <body>
@@ -37,4 +33,3 @@
     <a href="/categorias/index.php">Atras</a>
   </form>
 </body>
-</html>
